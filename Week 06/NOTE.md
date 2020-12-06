@@ -118,7 +118,3 @@
   * String
   * 对象
   * 其他类型
-
-## 参考资料
-
-[协变与逆变](https://jkchao.github.io/typescript-book-chinese/tips/covarianceAndContravariance.html)
