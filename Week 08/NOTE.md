@@ -2,11 +2,7 @@
 
 ### 浏览器基础渲染过程
 
-```mermaid
-graph LR
-  URL--HTTP-->HTML--parse-->DOM--css-computing-->DOM-with-CSS--layout-->DOM-with-position--render-->Bitmap
-  
-```
+[![rdaxjH.png](https://s3.ax1x.com/2020/12/21/rdaxjH.png)](https://imgchr.com/i/rdaxjH)
 
 ### 有限状态机处理字符串
 
@@ -39,7 +35,7 @@ function state(input) { // 函数参数作为输入
 POST / HTTP/1.1                                ## Request line 记录请求方式，路径，HTTP版本
 Host:127.0.0.1                                 ## BEGIN headers 记录域名、内容类型等多种信息
 Content-Type:application/x-www-form-urlencoded ## 
-																							 ## END headers 以空行为headers结束标志
+                                               ## END headers 以空行为headers结束标志
 field1=aaa&code=x%3D1                          ## body 主要信息内容
 ```
 
