@@ -21,7 +21,7 @@ function emit(token) {
         element.tagName = token.tagName;
 
         for (let p in token) {
-            if (p !== "token" && p !== "tagName") {
+            if (p !== "type" && p !== "tagName") {
                 element.attributes.push({
                     name: p,
                     value: token[p]
@@ -181,7 +181,7 @@ function beforeAttributeValue(c) {
 
 function doubleQuotedAttributeValue(c) {
     if (c == "\"") {
-        currentToken[currentAttribute.name] == currentAttribute.value;
+        currentToken[currentAttribute.name] = currentAttribute.value;
         return afterQuotedAttributeValue;
     } else if (c == "\u0000") {
         
@@ -195,7 +195,7 @@ function doubleQuotedAttributeValue(c) {
 
 function singleQuotedAttributeValue(c) {
     if (c == "\'") {
-        currentToken[currentAttribute.name] == currentAttribute.value;
+        currentToken[currentAttribute.name] = currentAttribute.value;
         return afterQuotedAttributeValue;
     } else if (c == "\u0000") {
         
@@ -250,6 +250,7 @@ function UnquotedAttributeValue(c) {
 function selfClosingStartTag(c) {
     if (c == ">") {
         currentToken.isSelfClosing = true;
+        emit(currentToken);
         return data;
     } else if (c == "EOF") {
 
