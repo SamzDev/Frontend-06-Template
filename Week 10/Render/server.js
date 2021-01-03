@@ -5,7 +5,7 @@ const server = http.createServer((request, response) => {
     console.log(request.headers);
     response.setHeader('Content-Type', 'text/html');
     response.setHeader('X-Foo', 'bar');
-    response.writeHead(200, {'Content-Type': 'text/plain'});
+    response.writeHead(200, {'Content-Type': ['text/plain', 'text/html']});
     response.end(
 `<html maaa=a >
 <head>
