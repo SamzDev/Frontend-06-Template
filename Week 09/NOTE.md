@@ -34,9 +34,9 @@ ps：这里的`token`是指编译原理中的术语，表示最小的有意义�
 
 ### CSS 选择器
 
-![](https://static001.geekbang.org/resource/image/4f/67/4fa32e5cf47c72a58f7a8211d4e8fc67.png)
+![语法结构](https://static001.geekbang.org/resource/image/4f/67/4fa32e5cf47c72a58f7a8211d4e8fc67.png)
 
-![](https://static001.geekbang.org/resource/image/8b/7c/8bdd0a249ab1dbf8b854b2decd7eb87c.png)
+![语法结构分析示例](https://static001.geekbang.org/resource/image/8b/7c/8bdd0a249ab1dbf8b854b2decd7eb87c.png)
 
 根据《重学前端》里提到的，从CSS选择器的语法结构可得，选择器通过几种`combinator`链接。`complex-selector`与`compound-selector`还有待后期学习，加以理解。两者好像都可以翻译成复合选择器，但两者又有所区别，`complex-selector`表示的范围比`compound-selector`大。
 
