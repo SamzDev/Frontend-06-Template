@@ -127,7 +127,7 @@ function layout(element) {
     }
 
     var flexLine = [];
-    var flexLines = [flexLine]
+    var flexLines = [flexLine];
 
     var mainSpace = elementStyle[mainSize];
     var crossSpace = 0;
@@ -197,7 +197,7 @@ function layout(element) {
         }
 
     } else {
-        flexLine.forEach(function (items) {
+        flexLines.forEach(function (items) {
             var mainSpace = items.mainSpace;
             var flexTotal = 0;
             for (var i = 0; i < items.length; i++) {

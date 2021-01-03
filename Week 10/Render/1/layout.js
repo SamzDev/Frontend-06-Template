@@ -42,8 +42,8 @@ function layout(element) {
         }
     });
 
-    if (!style.flexDiretion || style.flexDiretion === 'auto') {
-        style.flexDiretion = 'row';
+    if (!style.flexDirection || style.flexDirection === 'auto') {
+        style.flexDirection = 'row';
     }
     if (!style.alignItems || style.alignItems === 'auto') {
         style.alignItems = 'stretch';
@@ -59,7 +59,7 @@ function layout(element) {
     }
 
     var mainSize, mainStart, mainEnd, mainSign, mainBase, crossSize, crossStart, crossEnd, crossSign, crossBase;
-    if (style.flexDiretion === 'row') {
+    if (style.flexDirection === 'row') {
         mainSize = 'width';
         mainStart = 'left';
         mainEnd = 'right';
@@ -70,7 +70,7 @@ function layout(element) {
         crossStart = 'top';
         crossEnd = 'bottom';
     }
-    if (style.flexDiretion === 'row-reverse') {
+    if (style.flexDirection === 'row-reverse') {
         mainSize = 'width';
         mainStart = 'right';
         mainEnd = 'left';
@@ -81,7 +81,7 @@ function layout(element) {
         crossStart = 'top';
         crossEnd = 'bottom';
     }
-    if (style.flexDiretion === 'column') {
+    if (style.flexDirection === 'column') {
         mainSize = 'height';
         mainStart = 'top';
         mainEnd = 'bottom';
@@ -92,7 +92,7 @@ function layout(element) {
         crossStart = 'left';
         crossEnd = 'right';
     }
-    if (style.flexDiretion === 'column-reverse') {
+    if (style.flexDirection === 'column-reverse') {
         mainSize = 'height';
         mainStart = 'bottom';
         mainEnd = 'top';
@@ -127,7 +127,7 @@ function layout(element) {
     }
 
     var flexLine = [];
-    var flexLines = [flexLine]
+    var flexLines = [flexLine];
 
     var mainSpace = elementStyle[mainSize];
     var crossSpace = 0;
@@ -197,7 +197,7 @@ function layout(element) {
         }
 
     } else {
-        flexLine.forEach(function (items) {
+        flexLines.forEach(function (items) {
             var mainSpace = items.mainSpace;
             var flexTotal = 0;
             for (var i = 0; i < items.length; i++) {
@@ -238,8 +238,8 @@ function layout(element) {
                     var step = 0;
                 }
                 if (style.justifyContent === 'space-between') {
-                    var currentMain = mainBase;
                     var step = mainSpace / (items.length - 1) * mainSign;
+                    var currentMain = mainBase;
                 }
                 if (style.justifyContent === 'space-around') {
                     var step = mainSpace / items.length * mainSign;
