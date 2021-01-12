@@ -1,0 +1,94 @@
+<html maaa=a >
+<head>
+    <style>
+#container {
+    width:500px;
+    height:300px;
+    display:flex;
+    background-color:rgb(78, 78, 78);
+}
+#container #myid {
+    width:200px;
+    height:100px;
+    background-color:rgb(255,0,0);
+}
+#container .c1 {
+    flex:1;
+    background-color:rgb(0,255,0);
+}
+div #id.class {
+    flex: 1;
+    background-color:rgb(255, 0, 255);
+}
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="myid"></div>
+        <div class="c1"></div>
+        <img id="id" class="class" />
+    </div>
+</body>
+<script>
+    // 尝试了很多，都做不出我想要的结果
+    // 参考 12. CSS计算 | 计算选择器与元素匹配-练习1
+    // 同时参考往期同学的作业：https://github.com/chong2230/Frontend-05-Template/blob/master/Week%2011/match.html
+    // 最终做出以下效果
+    // 只处理了descendant combinator
+    function match(selector, element) {
+        
+        if (!selector || !element.attributes) {
+            return false;
+        }
+        selector = selector.toLowerCase(); // 处理一下可能出现大写
+        // 为了后面的逻辑处理，先默认true
+        let isMatched = true;
+        // 拆分选择器，先处理当前元素再找父节点所以做了reverse
+        // 并把不同节点的选择器拆分成简单选择器保存起来
+        let selectors = selector.split(" ").reverse(); 
+        let selectorSet = [];
+        for (let i = 0; i < selectors.length; i++) {
+            selectorSet.push(selectors[i].match(/(\w+)|(\.\w+)|(\#\w+)/g))
+        }
+        // 从当前元素往父元素匹配
+        for (let j = 0; j < selectorSet.length; j++) {
+            const selectorList = selectorSet[j];
+
+            for (let k = 0; k < selectorList.length; k++) {
+                if (!matchBasicSelector(selectorList[k], element)) {
+                    isMatched = false;
+                    break;
+                } 
+            }
+            
+            element = element.parentNode;
+        }
+        return isMatched;
+    }
+
+    function matchBasicSelector(selector, element) {
+        if (selector.charAt(0) === "#") {
+            let attr = element.attributes.id;
+            if (attr && attr.value === selector.replace('#','')) {
+                return true;
+            }
+        } else if (selector.charAt(0) === ".") {
+            let attr = element.attributes.class;
+            if (attr && attr.value === selector.replace('.','')) {
+                return true;
+            } 
+        } else {
+            // 元素的tagName通过debug分析是大写的，所以转换成小写进行比较
+            if (element.tagName.toLowerCase() === selector) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    console.log(match("div #id.class", document.getElementById("id")));
+    console.log(match("div#container #id.class", document.getElementById("id")));
+    console.log(match("div#container #id.class1", document.getElementById("id")));
+    console.log(match("div#container #id.class1", document.getElementById("myid")));
+</script>
+</html>
