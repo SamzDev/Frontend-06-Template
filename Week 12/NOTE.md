@@ -12,7 +12,7 @@
 
 而我们可以认为排版过程如下：
 
-格式化上下文(formatting context) + 盒(boxes)/文字(charater) = 位置(positions)
+格式化上下文(formatting context) + 盒(boxes)/文字(character) = 位置(positions)
 
 ##### 针对行内级盒和块级盒规定了对应的排版方式
 
