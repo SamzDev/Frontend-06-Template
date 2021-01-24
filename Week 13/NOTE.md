@@ -21,7 +21,7 @@ HTML还有很多语义化的标签，可以参考[HTML 语义：如何运用语�
 * CDATA文件节点
   * 在 CDATA 节点内，不需要考虑多数的转义情况
 
-##### DTD（Document Type Defination）
+##### DTD（Document Type Definition）
 
 DTD，全称`Document Type Defination`(文档类型定义)，SGML 通过DTD来定义每一种文档类型。在HTML4.01时代，有三种DTD，分别是严格模式、过渡模式、frameset模式。而到了HTML5时代，就放弃了这些复杂有没有多大实际作用的DTD，采用一个简单的DTD，`<!DOCTYPE html>`
 
