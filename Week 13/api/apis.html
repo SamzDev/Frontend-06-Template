@@ -88,10 +88,6 @@
 
     names = filterOut(names, ["AbortController", "AbortSignal"]);
 
-     // https://dom.spec.whatwg.org/#nodes
-
-     names = filterOut(names, ["NodeList", "HTMLCollection", "MutationObserver", "MutationRecord"]);
-
     // https://url.spec.whatwg.org/#url-class
 
     names = filterOut(names, ["URLSearchParams", "URL"]);
@@ -105,9 +101,9 @@
     names = filterOut(names, ["StorageManager"]);
 
     
-    // console.log(names); 
-    for (const name of names) {
-        console.log(name);
-    }
+    console.log(names); 
+    // for (const name of names) {
+    //     console.log(name);
+    // }
 
 </script>
