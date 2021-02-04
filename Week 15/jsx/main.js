@@ -15,7 +15,9 @@ a.mountTo(document.body);
 
 let tl = new Timeline();
 
-tl.add(new Animation({set a(v) {
+window.tl = tl;
+window.animation = new Animation({set a(v) {
     console.log(v)
-}}, "a", 0, 100, 1000, null));
+}}, "a", 0, 100, 1000, null);
+
 tl.start();
