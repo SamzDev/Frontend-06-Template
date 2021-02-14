@@ -12,12 +12,20 @@ export function createElement(type, attributes, ...children) {
         element.setAttribute(name, attributes[name]);
     }
     
-    for (const child of children) {
-        if (typeof child === "string") {
-            child = new TextWrapper(child);
+    let processChildren = (children) => {
+        for (const child of children) {
+            if ((typeof child === "object") && (child instanceof Array)) {
+                processChildren(child);
+                continue;
+            }
+            if (typeof child === "string") {
+                child = new TextWrapper(child);
+            }
+            element.appendChild(child);
         }
-        element.appendChild(child);
     }
+
+    processChildren(children);
     
     return element;
 
@@ -35,7 +43,6 @@ export class Component {
         return this.root;
     }
     setAttribute(name, value) {
-        
         this[ATTRIBUTE][name] = value;
     }
     appendChild(child) {
@@ -56,6 +63,9 @@ class ElementWrapper extends Component {
     constructor(type) {
         super();
         this.root = document.createElement(type);
+    }
+    setAttribute(name, value) {
+        this.root.setAttribute(name, value);
     }
     
 }
