@@ -38,8 +38,13 @@ export class Carousel extends Component {
         this.root.addEventListener("start", event => {
             timeline.pause();
             clearInterval(handler);
-            let progress = (Date.now() - t) / 500;
-            ax = ease(progress) * 500 - 500;
+            
+            if (Date.now() - t < 1500) {
+                let progress = (Date.now() - t) / 1500;
+                ax = ease(progress) * 500 - 500;
+            } else {
+                ax = 0;
+            }
         })
 
         this.root.addEventListener("pan", event => {
@@ -87,14 +92,17 @@ export class Carousel extends Component {
 
         let nextPicture = () => {
             let children = this.root.children;
-            let nextIndex = (position + 1) % children.length;
+            let nextPosition = (position + 1) % children.length;
+            
             let current = children[position];
-            let next = children[nextIndex];
+            let next = children[nextPosition];
+            
             t = Date.now();
+            
             timeline.add(new Animation(current.style, "transform", - position * 500, -500 - position * 500, 500, 0, ease, v => `translateX(${v}px)`));
-            timeline.add(new Animation(next.style, "transform", 500 - nextIndex * 500, - nextIndex * 500, 500, 0, ease, v => `translateX(${v}px)`));
+            timeline.add(new Animation(next.style, "transform", 500 - nextPosition * 500, - nextPosition * 500, 500, 0, ease, v => `translateX(${v}px)`));
 
-            position = nextIndex;
+            position = nextPosition;
             
         }
         handler = setInterval(nextPicture, 3000);
