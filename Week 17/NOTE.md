@@ -159,6 +159,8 @@ module.exports = {
 
 * 执行`babel 文件路径`，例如`babel ./src/sample.js`将`sample.js`的内容转换成低版本JavaScript
 
+以上是`babel`独立使用的方式，更多的时候会结合`webpack`使用，这时候用的是`babel-loader`，在build过程中，对每个js文件都进行转换。
+
 
 
 #### 本周学习内容
