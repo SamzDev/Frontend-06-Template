@@ -176,8 +176,3 @@ module.exports = {
 [Webpack v4 文档](https://v4.webpack.js.org/concepts/)
 
 [Babel文档](https://babeljs.io/docs/en/)
-
-
-```
-
-```
