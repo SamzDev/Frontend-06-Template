@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node ./server.js",
+    "publish": "scp -r -P 2222 ./* samumu@127.0.0.0:/home/samumu/publish-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
