@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./server.js",
-    "publish": "scp -r -P 2222 ./* samumu@127.0.0.1:/home/samumu/publish-server",
+    "publish": "scp -r ./* pi@10.189.188.113:/home/pi/publish-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
